@@ -20,7 +20,12 @@ Data Member Siswa | Admin Sanedu
 
 {{-- component table --}}
 @component('member/component/table_member',[
-'type' => 'Siswa'
+'type' => 'Siswa',
+
+'id' => $data[0],
+'name' => $data[1],
+'school' => $data[2]
+
 ])
 @endcomponent
 

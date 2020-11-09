@@ -27,11 +27,11 @@
                         <th class="text-center">
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                         </th>
-                        <th>1</th>
-                        <td>Mucidi</td>
-                        <td>GRUGO111</td>
-                        <td>SMAN 1 Gentong</td>
-                        <td>081123456789</td>
+                    <th>1</th>
+                        <td>{{$name}}</td>
+                        <td>{{$id}}</td>
+                        <td>{{$school}}</td>
+                        <td>{{$whatsapp}}</td>
                         <td class="text-center"><a href=""><i class="fa fa-whatsapp text-success fa-lg"></i></a></td>
                         <td class="text-center"><a href="" data-toggle="modal" data-target="#update-pass"><i
                                     class="fa fa-key text-info fa-lg"></i></a></td>
