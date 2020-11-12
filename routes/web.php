@@ -27,7 +27,8 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('/sanclass/point','sanclass\DaftarPointController@point')->name('san-class-point');
 
     //member
-    Route::get('/member/siswa','member\SiswaController@siswa')->name('member-siswa');
+    Route::get('/member/siswa','member\SiswaController@index')->name('member-siswa');
+    Route::get('/member/siswa/cari','member\SiswaController@search')->name('member-siswa');
     Route::get('/member/guru','member\GuruController@index')->name('member-guru');
     Route::get('/member/datawilayah','member\DataWilayahController@index')->name('member-data-wilayah');
 });

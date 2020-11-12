@@ -11,10 +11,10 @@ Data Member Siswa | Admin Sanedu
 'page_name' => 'SISWA',
 'search_button' => true,
 'tag_search_placeholder' => 'Cari Siswa',
-'action_url' => '',
-'form_method' => '',
+'action_url' => '/member/siswa/cari',
+'form_method' => 'GET',
 'tag_search_id' => '',
-'tag_search_name'=> ''
+'tag_search_name'=> 'Key'
 ])
 @endcomponent
 
@@ -22,9 +22,15 @@ Data Member Siswa | Admin Sanedu
 @component('member/component/table_member',[
 'type' => 'Siswa',
 
-'id' => $data[0],
-'name' => $data[1],
-'school' => $data[2]
+'datas' => $siswa,
+
+
+])
+@endcomponent
+
+{{-- component pagination --}}
+@component('layouts/component/pagination',[
+'datas' => $siswa
 
 ])
 @endcomponent

@@ -9,7 +9,7 @@ Data Member Guru | Admin Sanedu
 {{-- component header --}}
 @component('layouts/component/content-header',[
 'page_name' => 'GURU',
-'search_button' => true,
+'search_button' => false,
 'tag_search_placeholder' => 'Cari Guru',
 'action_url' => '',
 'form_method' => '',
@@ -20,8 +20,14 @@ Data Member Guru | Admin Sanedu
 
 {{-- component table --}}
 @component('member/component/table_member',[
-'type' => 'Guru'
+'type' => 'Siswa',
+'datas' => $guru,
 ])
 @endcomponent
 
+{{-- component pagination --}}
+@component('layouts/component/pagination',[
+'datas' => $guru
+])
+@endcomponent
 @endsection
