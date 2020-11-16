@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers\member;
 
-use App\Http\Controllers\Controller;
+use App\Models\Member;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class GuruController extends Controller
 {
     public function index()
     {
-        return view('member.guru');
+        $guru = Member::where('is_teacher' ,1)->paginate(20);
+        $currentPage = $guru->currentPage();
+        return view('member.guru',compact('guru'));
     }
 
     public function create()

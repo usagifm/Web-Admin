@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers\member;
 
-use App\Http\Controllers\Controller;
+use App\Models\Member;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class DataWilayahController extends Controller
 {
     public function index()
     {
-        return view('member.data_wilayah');
+        $siswa = Member::where('is_teacher' ,0)->get();
+        $guru = Member::where('is_teacher' ,1)->get();
+
+        $siswaByProvince = Member::where('is_teacher' ,0)->get()->groupBy('province_name');
+        $guruByProvince = Member::where('is_teacher' ,1)->get()->groupBy('province_name');
+
+        return view('member.data_wilayah',compact('siswa','guru','siswaByProvince','guruByProvince'));
     }
 
     public function create()

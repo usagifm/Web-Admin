@@ -1,6 +1,8 @@
 <a href="" class="btn btn-light btn-xs" type="button" title="edit" data-toggle="modal" data-target="#delete-modal"
     data-modal-id="">
-    <i class="fa fa-trash text-danger fa-lg"></i></a>
+    <i class="fa fa-trash text-danger fa-lg">
+    </i>
+</a>
 
 {{-- MODAL --}}
 <div id="delete-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"

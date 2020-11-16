@@ -7,6 +7,11 @@ Data Member Siswa | Admin Sanedu
 @section('content')
 
 {{-- component header --}}
+@component('layouts/component/allert',[
+])
+@endcomponent
+
+{{-- component header --}}
 @component('layouts/component/content-header',[
 'page_name' => 'SISWA',
 'search_button' => true,
@@ -21,10 +26,7 @@ Data Member Siswa | Admin Sanedu
 {{-- component table --}}
 @component('member/component/table_member',[
 'type' => 'Siswa',
-
 'datas' => $siswa,
-
-
 ])
 @endcomponent
 

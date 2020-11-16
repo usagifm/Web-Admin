@@ -28,8 +28,11 @@ Route::group(['middleware' => 'auth'],function(){
 
     //member
     Route::get('/member/siswa','member\SiswaController@index')->name('member-siswa');
+    Route::post('/member/change/password/{id}','member\SiswaController@changePassword')->name('member-siswa');
+    Route::post('/member/delete/member/{id}','member\SiswaController@deleteMember')->name('member-siswa');
     Route::get('/member/siswa/cari','member\SiswaController@search')->name('member-siswa');
     Route::get('/member/guru','member\GuruController@index')->name('member-guru');
     Route::get('/member/datawilayah','member\DataWilayahController@index')->name('member-data-wilayah');
+    
 });
 Route::get('/home', 'HomeController@index')->name('home');

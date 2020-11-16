@@ -7,6 +7,11 @@ Data Member Guru | Admin Sanedu
 @section('content')
 
 {{-- component header --}}
+@component('layouts/component/allert',[
+])
+@endcomponent
+
+{{-- component header --}}
 @component('layouts/component/content-header',[
 'page_name' => 'GURU',
 'search_button' => false,
