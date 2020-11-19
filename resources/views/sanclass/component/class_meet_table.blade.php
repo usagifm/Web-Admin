@@ -2,16 +2,16 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th class="text-center">
+                {{-- <th class="text-center">
                     <a href="" class="btn btn-danger btn-xs m-0 p-0" type="button" title="edit"><i
                             class="fa fa-trash text-light fa-lg"></i></a>
-                </th>
+                </th> --}}
                 <th class="">Nomor</th>
                 <th class="">Pertemuan</th>
                 <th class="">Tanggal</th>
                 <th class="">Waktu</th>
                 <th class="">Jenis Pertemuan</th>
-                <th class="text-center">Aksi</th>
+                {{-- <th class="text-center">Aksi</th> --}}
             </tr>
         </thead>
         <tbody>
@@ -25,9 +25,9 @@
                     @endphp
             @foreach ($datas as $data)
             <tr>
-                <th class="text-center">
+                {{-- <th class="text-center">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                </th>
+                </th> --}}
             <th>{{$num++}}</th>
                 <td class="text-primary">
                 <a href="/sanclass/class/{{$data->class_id}}/meet/{{$data->id}}">
@@ -36,15 +36,32 @@
                 </td>
                 <td>{{$data->date}}</td>
                 <td>{{$data->start_time}} - {{$data->finish_time}}</td>
-                <td>Hanya Ujian</td>
-                <td class="text-center">
-                    {{-- component button delete --}}
-                    @component('layouts/component/button_delete')
+                
+                @if ($data->quiz == null)
+                <td> - </td>
 
-                    @endcomponent
+                @elseif ($data->quiz != null)
+
+                <td> Disertai Quiz </td>
+
+                @endif
+
+                @php
+                    
+                // dd($data->lessons);
+
+                @endphp
+                
+
+                {{-- <td class="text-center">
+                    {{-- component button delete --}}
+                    {{-- @component('layouts/component/button_delete')   --}}
+
+                    {{-- @endcomponent
                     <a href="" class="btn btn-light btn-xs" type="button" title="edit" data-toggle="modal"
                         data-target="#edit"><i class="fa fa-download text-primary fa-lg"></i></a>
-                </td>
+                </td> --}}   
+            
             </tr>
 
             @endforeach

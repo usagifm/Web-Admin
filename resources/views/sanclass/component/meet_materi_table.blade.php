@@ -2,15 +2,15 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th class="text-center">
+                {{-- <th class="text-center">
                     <a href="" class="btn btn-danger btn-xs m-0 p-0" type="button" title="edit"><i
                             class="fa fa-trash text-light fa-lg"></i></a>
-                </th>
+                </th> --}}
                 <th class="">Nomor</th>
                 <th class="">Nama Materi</th>
                 <th class="">Link</th>
                 <th class="">Youtube</th>
-                <th class="text-center">Aksi</th>
+                {{-- <th class="text-center">Aksi</th> --}}
             </tr>
         </thead>
         <tbody>
@@ -27,9 +27,9 @@
                 
         @foreach ($datas as $data)
             <tr>
-                <th class="text-center">
+                {{-- <th class="text-center">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                </th>
+                </th> --}}
                 <th>{{$num++}}</th>
                 <td class="text-primary">
                 <a href="/sanclass/class/{{$class->id}}/meet/{{$data->class_meeting_id}}/lesson/{{$data->id}}">
@@ -38,15 +38,15 @@
                 </td>
             <td>{{$data->link}}</td>
             <td>{{$data->youtube}}</td>
-                <td class="text-center">
+                {{-- <td class="text-center"> --}}
                     {{-- component button delete --}}
-                    @component('layouts/component/button_delete')
+                    {{-- @component('layouts/component/button_delete')
 
                     @endcomponent
                     <a href="" class="btn btn-light btn-xs" type="button" title="edit" data-toggle="modal"
                         data-target="#edit"><i class="fa fa-download text-primary fa-lg"></i></a>
                 </td>
-            </tr>
+            </tr> --}}
         @endforeach
         </tbody>
     </table>

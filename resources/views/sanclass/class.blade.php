@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-Kelas Memasak | Admin Sanedu
+{{ $kelas->name }} | Admin Sanedu
 @endsection
 
 @section('content')

@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-6 col-lg-4">Nama Kelas</div>
             <div class="col-md-1 col-lg-1 p-0">:</div>
-            <div class="col-md-6 col-lg-4 p-0">{{$datas->class->name}}</div>
+        <div class="col-md-6 col-lg-4 p-0"><a class="text-center" href="/sanclass/class/{{$datas->class->id}}"> {{$datas->class->name}} </a></div>
         </div>
         
         <div class="row">
