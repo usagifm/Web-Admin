@@ -4,11 +4,12 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th class="text-center">
+                        {{-- <th class="text-center">
                             <a href="" class="btn btn-danger btn-xs m-0 p-0" type="button" title="edit"><i
                                     class="fa fa-trash text-light fa-lg"></i></a>
-                        </th>
+                        </th> --}}
                         <th class="">Nomor</th>
+                        <th class="">Status</th>
                         <th class="">Nama {{$type}}</th>
                         <th class="">Username </th>
                         <th class="">ID</th>
@@ -28,10 +29,16 @@
 
                     <tr>
 
-                        <th class="text-center">
+                        {{-- <th class="text-center">
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                        </th>
+                        </th> --}}
                         <th>{{$num++}}</th>
+                                @if ( $data->is_teacher === 1 )
+                                    <td class="text-primary">Guru</td>
+                                @else
+                                    <td class="text-success">Siswa</td>
+                                @endif
+
                         <td>{{ucfirst(strtolower($data->name))}}</td>
                         <td>{{$data->username}}</td>
                         <td>{{$data->id}}</td>

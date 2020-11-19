@@ -19,18 +19,23 @@
                     $num = ($data->currentPage() - 1 ) * $data->perPage() + 1;
                     @endphp --}}
 
+
+        @php
+                    $num = 1;
+                    @endphp
+            @foreach ($datas as $data)
             <tr>
                 <th class="text-center">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                 </th>
-                <th>1</th>
+            <th>{{$num++}}</th>
                 <td class="text-primary">
-                    <a href="/sanclass/class/memasak/meet/1">
-                        Pertemuan 1
+                <a href="/sanclass/class/{{$data->class_id}}/meet/{{$data->id}}">
+                       {{$data->name}}
                     </a>
                 </td>
-                <td>10/10/2020</td>
-                <td>8:30 - 11:30</td>
+                <td>{{$data->date}}</td>
+                <td>{{$data->start_time}} - {{$data->finish_time}}</td>
                 <td>Hanya Ujian</td>
                 <td class="text-center">
                     {{-- component button delete --}}
@@ -41,6 +46,9 @@
                         data-target="#edit"><i class="fa fa-download text-primary fa-lg"></i></a>
                 </td>
             </tr>
+
+            @endforeach
+
 
         </tbody>
     </table>

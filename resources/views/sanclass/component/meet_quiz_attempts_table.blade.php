@@ -7,10 +7,14 @@
                             class="fa fa-trash text-light fa-lg"></i></a>
                 </th>
                 <th class="">Nomor</th>
-                <th class="">Nama Siswa</th>
-                <th class="">Materi 1</th>
-                <th class="">Materi 2</th>
-                <th class="">Kuis</th>
+                <th class="">Pertanyaan</th>
+                <th class="">Gambar Pertanyaan</th>
+                <th class="">A</th>
+                <th class="">B</th>
+                <th class="">C</th>
+                <th class="">D</th>
+                <th class="">E</th>
+                <th class="">Kunci Jawaban</th>
                 <th class="text-center">Aksi</th>
             </tr>
         </thead>
@@ -19,15 +23,25 @@
                     $num = ($data->currentPage() - 1 ) * $data->perPage() + 1;
                     @endphp --}}
 
+
+                    @php
+                    $num = 1;
+                    @endphp
+    @foreach ($datas as $data)
+
             <tr>
                 <th class="text-center">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                 </th>
-                <th>1</th>
-                <td>Mbah Marijan</td>
-                <th class="text-success">Hadir</th>
-                <th class="text-danger">Absen</th>
-                <th class="text-danger">Absen</th>
+                <th>{{$num++}}</th>
+                <th>{{$data->question}}</th>
+                <th>http://storage.sanedu.id/{{$data->question_image}}</th>
+                <th>{{$data->a}}</th>
+                <th>{{$data->b}}</th>
+                <th>{{$data->c}}</th>
+                <th>{{$data->d}}</th>
+                <th>{{$data->e}}</th>
+                <th>{{$data->answer}}</th>
                 <td class="text-center">
                     {{-- component button delete --}}
                     @component('layouts/component/button_delete')
@@ -37,6 +51,7 @@
                         data-target="#edit"><i class="fa fa-download text-primary fa-lg"></i></a>
                 </td>
             </tr>
+            @endforeach
 
         </tbody>
     </table>

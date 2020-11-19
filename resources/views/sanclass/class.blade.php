@@ -8,7 +8,7 @@ Kelas Memasak | Admin Sanedu
 
 {{-- component header --}}
 @component('layouts/component/content-header',[
-'page_name' => 'KELAS MEMASAK',
+'page_name' => 'Detail Kelas',
 'search_button' => false,
 'tag_search_placeholder' => 'Cari Kelas',
 'action_url' => '',
@@ -20,11 +20,7 @@ Kelas Memasak | Admin Sanedu
 
 {{-- component detail class --}}
 @component('sanclass/component/class_detail',[
-'nama_kelas' => 'Kelas Memasak',
-'kode_kelas' => 'MMSK1123',
-'nama_guru' => 'Abdul Wawan',
-'jumlah_siswa' => '30',
-'asal_sekolah' => 'SMAN 1 Wanjay'
+'datas' => $kelas
 ])
 
 @endcomponent
@@ -36,17 +32,18 @@ Kelas Memasak | Admin Sanedu
 <div class="tab-content">
     <div class="tab-pane fade in active" id="meet">
         @component('sanclass/component/class_meet_table',[
-
+            'datas' => $kelas->meetings
         ])
         @endcomponent
     </div>
     <div class="tab-pane fade" id="student">
         @component('sanclass/component/class_student_table',[
-
+             'datas' => $kelas->students
         ])
         @endcomponent
     </div>
 </div>
+
 
 
 @endsection

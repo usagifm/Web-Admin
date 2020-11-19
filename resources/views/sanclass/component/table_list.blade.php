@@ -18,24 +18,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @php
-                    $num = ($data->currentPage() - 1 ) * $data->perPage() + 1;
-                    @endphp --}}
+                    @php
+                    $num = ($datas->currentPage() - 1 ) * $datas->perPage() + 1;
+                    @endphp
+
+                        @foreach ($datas as $data)
+
 
                     <tr>
                         <th class="text-center">
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                         </th>
-                        <th>1</th>
+                        <th>{{$num++}}</th>
                         <td class="text-primary">
-                            <a href="/sanclass/class/memasak">
-                                Kelas Memasak
+                            <a href="{{ url('sanclass/class', [$data->id]) }}">
+                            {{$data->name}}
                             </a>
                         </td>
-                        <td>XR2452</td>
-                        <td>Abdul Wawan</td>
-                        <td>41</td>
-                        <td>SMAN 1 Langit Gelap</td>
+                        <td>{{$data->class_code}}</td>
+                        <td>{{$data->creator->name}}</td>
+                        <td>{{$data->students->count()}}</td>
+                        <td>{{$data->school}}</td>
                         <td class="text-center">
                             {{-- component button delete --}}
                             @component('layouts/component/button_delete')
@@ -45,6 +48,8 @@
                                 data-target="#edit"><i class="fa fa-download text-primary fa-lg"></i></a>
                         </td>
                     </tr>
+
+                    @endforeach
 
                 </tbody>
             </table>

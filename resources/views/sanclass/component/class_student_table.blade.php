@@ -17,13 +17,18 @@
                     $num = ($data->currentPage() - 1 ) * $data->perPage() + 1;
                     @endphp --}}
 
-            <tr>
+
+                    @php
+                    $num = 1;
+                    @endphp
+            @foreach ($datas as $data)
+                    <tr>
                 <th class="text-center">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                 </th>
-                <th>1</th>
-                <td>Riski Novanda</td>
-                <td>081123456789</td>
+                <th>{{$num++}}</th>
+                <td>{{$data->name}}</td>
+                <td>{{$data->whatsapp}}</td>
                 <td class="text-center">
                     {{-- component button delete --}}
                     @component('layouts/component/button_delete')
@@ -33,6 +38,8 @@
                         data-target="#edit"><i class="fa fa-download text-primary fa-lg"></i></a>
                 </td>
             </tr>
+
+            @endforeach
 
         </tbody>
     </table>

@@ -14,12 +14,12 @@ Data Member Guru | Admin Sanedu
 {{-- component header --}}
 @component('layouts/component/content-header',[
 'page_name' => 'GURU',
-'search_button' => false,
+'search_button' => true,
 'tag_search_placeholder' => 'Cari Guru',
-'action_url' => '',
-'form_method' => '',
+'action_url' => '/member/siswa/cari',
+'form_method' => 'GET',
 'tag_search_id' => '',
-'tag_search_name'=> ''
+'tag_search_name'=> 'Key'
 ])
 @endcomponent
 

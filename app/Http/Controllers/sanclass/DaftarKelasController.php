@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\sanclass;
 
+use App\Models\Kelas;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -9,13 +10,45 @@ class DaftarKelasController extends Controller
 {
     public function list()
     {
-        return view('sanclass.list');
+        $kelas = Kelas::paginate(20);
+        $currentPage = $kelas->currentPage();
+
+        // dd($kelas);
+
+        return view('sanclass.list', compact('kelas','currentPage'));
     }
 
-    public function class()
+    public function class($id)
     {
-        return view('sanclass.class');
+
+        $kelas = Kelas::find($id);
+
+        // dd($kelas);
+
+        return view('sanclass.class', compact('kelas'));
     }
+
+    
+    public function search(Request $request){
+
+        $search = $request->Key;
+        
+        // mengambil data dari table kelas sesuai pencarian data
+        $kelas = Kelas::where('name','like',"%".$search."%")
+        ->orWhere('class_code', 'like',"%".$search."%")
+        ->orWhere('school', 'like',"%".$search."%")
+        ->orWhere('grade_level', 'like',"%".$search."%")
+        ->paginate(20);
+
+
+        $currentPage = $kelas->currentPage();
+
+        // mengirim data pegawai ke view index
+        return view('sanclass.list',compact('kelas','currentPage'));
+
+    }
+
+
 
     public function meet()
     {

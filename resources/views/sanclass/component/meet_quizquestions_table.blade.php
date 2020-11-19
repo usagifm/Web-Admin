@@ -7,9 +7,14 @@
                             class="fa fa-trash text-light fa-lg"></i></a>
                 </th>
                 <th class="">Nomor</th>
-                <th class="">Nama Materi</th>
-                <th class="">Link</th>
-                <th class="">Youtube</th>
+                <th class="">Pertanyaan</th>
+                <th class="">Gambar Pertanyaan</th>
+                <th class="">A</th>
+                <th class="">B</th>
+                <th class="">C</th>
+                <th class="">D</th>
+                <th class="">E</th>
+                <th class="">Kunci Jawaban</th>
                 <th class="text-center">Aksi</th>
             </tr>
         </thead>
@@ -19,25 +24,24 @@
                     @endphp --}}
 
 
+                    @php
+                    $num = 1;
+                    @endphp
+    @foreach ($datas as $data)
 
-        @php
-        $num = 1;
-        @endphp
-
-                
-        @foreach ($datas as $data)
             <tr>
                 <th class="text-center">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                 </th>
                 <th>{{$num++}}</th>
-                <td class="text-primary">
-                <a href="/sanclass/class/{{$class->id}}/meet/{{$data->class_meeting_id}}/lesson/{{$data->id}}">
-                        {{$data->name}}
-                     </a>
-                </td>
-            <td>{{$data->link}}</td>
-            <td>{{$data->youtube}}</td>
+                <th>{{$data->question}}</th>
+                <th>http://storage.sanedu.id/{{$data->question_image}}</th>
+                <th>{{$data->a}}</th>
+                <th>{{$data->b}}</th>
+                <th>{{$data->c}}</th>
+                <th>{{$data->d}}</th>
+                <th>{{$data->e}}</th>
+                <th>{{$data->answer}}</th>
                 <td class="text-center">
                     {{-- component button delete --}}
                     @component('layouts/component/button_delete')
@@ -47,7 +51,8 @@
                         data-target="#edit"><i class="fa fa-download text-primary fa-lg"></i></a>
                 </td>
             </tr>
-        @endforeach
+            @endforeach
+
         </tbody>
     </table>
 </div>
