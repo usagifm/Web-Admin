@@ -9,7 +9,7 @@ Daftar Point | Admin Sanedu
 {{-- component Header --}}
 @component('layouts/component/content-header',[
 'page_name' => 'Daftar Point',
-'search_button' => true,
+'search_button' => false,
 'tag_search_placeholder' => 'Cari Guru',
 'action_url' => '',
 'form_method' => '',

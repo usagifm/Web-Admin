@@ -22,13 +22,26 @@ Auth::routes();
 Route::group(['middleware' => 'auth'],function(){
     //sanclass
     Route::get('/sanclass/list','sanclass\DaftarKelasController@list')->name('san-class-list');
-    Route::get('/sanclass/class/memasak','sanclass\DaftarKelasController@class')->name('san-class-list');
-    Route::get('/sanclass/class/memasak/meet/1','sanclass\DaftarKelasController@meet')->name('san-class-list');
+    Route::get('/sanclass/class/{id}','sanclass\DaftarKelasController@class')->name('san-class-list');
+    Route::get('/sanclass/list/cari','sanclass\DaftarKelasController@search')->name('san-class-list');
     Route::get('/sanclass/point','sanclass\DaftarPointController@point')->name('san-class-point');
+
+    // Pertemuan
+    Route::get('/sanclass/class/{class_id}/meet/{id}','sanclass\DaftarPertemuanController@index')->name('san-class-list');
+    Route::post('/sanclass/delete/attempt/{id}','sanclass\DaftarPertemuanController@deleteAttempt')->name('member-siswa');
+
+
+    // Materi
+    Route::get('/sanclass/class/{class_id}/meet/{meeting_id}/lesson/{id}','sanclass\MateriController@index')->name('san-class-list');
 
     //member
     Route::get('/member/siswa','member\SiswaController@index')->name('member-siswa');
+    Route::post('/member/change/password/{id}','member\SiswaController@changePassword')->name('member-siswa');
+    Route::post('/member/delete/member/{id}','member\SiswaController@deleteMember')->name('member-siswa');
+    Route::get('/member/siswa/cari','member\SiswaController@search')->name('member-siswa');
     Route::get('/member/guru','member\GuruController@index')->name('member-guru');
+    // Route::get('/member/guru/cari','member\GuruController@search')->name('member-siswa');
     Route::get('/member/datawilayah','member\DataWilayahController@index')->name('member-data-wilayah');
+    
 });
 Route::get('/home', 'HomeController@index')->name('home');

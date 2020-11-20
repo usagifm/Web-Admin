@@ -2,15 +2,20 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                {{-- <th class="text-center">
+                <th class="text-center">
                     <a href="" class="btn btn-danger btn-xs m-0 p-0" type="button" title="edit"><i
                             class="fa fa-trash text-light fa-lg"></i></a>
-                </th> --}}
+                </th>
                 <th class="">Nomor</th>
-                <th class="">Nama Siswa</th>
-                <th class="">No Whatsapp</th>
-                <th class="">Hubungi</th>
-                {{-- <th class="text-center">Aksi</th> --}}
+                <th class="">Pertanyaan</th>
+                <th class="">Gambar Pertanyaan</th>
+                <th class="">A</th>
+                <th class="">B</th>
+                <th class="">C</th>
+                <th class="">D</th>
+                <th class="">E</th>
+                <th class="">Kunci Jawaban</th>
+                <th class="text-center">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -22,29 +27,30 @@
                     @php
                     $num = 1;
                     @endphp
-            @foreach ($datas as $data)
-                    <tr>
-                {{-- <th class="text-center">
+    @foreach ($datas as $data)
+
+            <tr>
+                <th class="text-center">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                </th> --}}
+                </th>
                 <th>{{$num++}}</th>
-                <td>{{$data->name}}</td>
-                <td>0{{$data->whatsapp}}</td>
-                <td class="">
-                    <a href="https://api.whatsapp.com/send?phone=0{{$data->whatsapp}}" target="_blank">
-                        <i class="fa fa-whatsapp text-success fa-lg"></i>
-                    </a>
-                </td>
-                {{-- <td class="text-center"> --}}
+                <th>{{$data->question}}</th>
+                <th>http://storage.sanedu.id/{{$data->question_image}}</th>
+                <th>{{$data->a}}</th>
+                <th>{{$data->b}}</th>
+                <th>{{$data->c}}</th>
+                <th>{{$data->d}}</th>
+                <th>{{$data->e}}</th>
+                <th>{{$data->answer}}</th>
+                <td class="text-center">
                     {{-- component button delete --}}
-                    {{-- @component('layouts/component/button_delete')
+                    @component('layouts/component/button_delete')
 
                     @endcomponent
                     <a href="" class="btn btn-light btn-xs" type="button" title="edit" data-toggle="modal"
                         data-target="#edit"><i class="fa fa-download text-primary fa-lg"></i></a>
-                </td> --}}
+                </td>
             </tr>
-
             @endforeach
 
         </tbody>

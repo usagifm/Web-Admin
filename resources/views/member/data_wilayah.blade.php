@@ -22,17 +22,25 @@ Data Member Perwilayah | Admin Sanedu
     <div class="col-md-6 col-lg-6 col-6">
         {{-- component data --}}
         @component('member/component/data_member_grafik',[
-        'type' => 'Siswa'
+        'type' => 'Siswa',
+        'data' => $siswa,
+        'provinces' => $siswaByProvince,
         ])
         @endcomponent
     </div>
     <div class="col-md-6 col-lg-6 col-6">
         {{-- component data --}}
         @component('member/component/data_member_grafik',[
-        'type' => 'Guru'
+        'type' => 'Guru',
+        'data' => $guru,
+        'provinces' => $guruByProvince,
         ])
         @endcomponent
     </div>
 </div>
+
+{{-- @foreach ($siswaByProvince as $key => $siswaProvince)
+{{$key}}<br>
+@endforeach --}}
 
 @endsection

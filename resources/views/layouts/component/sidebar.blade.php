@@ -73,7 +73,9 @@
                             <a href="/sanclass/list">Daftar Kelas</a>
                         </li>
                         <li class="{{ Route::currentRouteNamed('san-class-point') ? 'active' : '' }}">
-                            <a href="/sanclass/point">Daftar Point</a>
+                            <a href="">Daftar Point</a>
+
+                            {{-- <a href="/sanclass/point">Daftar Point</a> --}}
                         </li>
                     </ul>
                 </li>

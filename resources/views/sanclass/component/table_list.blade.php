@@ -4,47 +4,56 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th class="text-center">
+                        {{-- <th class="text-center">
                             <a href="" class="btn btn-danger btn-xs m-0 p-0" type="button" title="edit"><i
                                     class="fa fa-trash text-light fa-lg"></i></a>
-                        </th>
+                        </th> --}}
                         <th class="">Nomor</th>
                         <th class="">Nama Kelas</th>
                         <th class="">Kode Kelas</th>
                         <th class="">Nama Guru</th>
+                        <th class="">Jumlah Quota</th>
                         <th class="">Jumlah Siswa</th>
                         <th class="">Asal Sekolah Siswa</th>
-                        <th class="text-center">Aksi</th>
+                        {{-- <th class="text-center">Aksi</th> --}}
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @php
-                    $num = ($data->currentPage() - 1 ) * $data->perPage() + 1;
-                    @endphp --}}
+                    @php
+                    $num = ($datas->currentPage() - 1 ) * $datas->perPage() + 1;
+                    @endphp
+
+                        @foreach ($datas as $data)
+
 
                     <tr>
-                        <th class="text-center">
+                        {{-- <th class="text-center">
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                        </th>
-                        <th>1</th>
+                        </th> --}}
+                        <th>{{$num++}}</th>
                         <td class="text-primary">
-                            <a href="/sanclass/class/memasak">
-                                Kelas Memasak
+                            <a href="{{ url('sanclass/class', [$data->id]) }}">
+                            {{$data->name}}
                             </a>
                         </td>
-                        <td>XR2452</td>
-                        <td>Abdul Wawan</td>
-                        <td>41</td>
-                        <td>SMAN 1 Langit Gelap</td>
-                        <td class="text-center">
-                            {{-- component button delete --}}
+                        <td>{{$data->class_code}}</td>
+                        <td>{{$data->creator->name}}</td>
+                        <td class="text-center">{{$data->quota}}</td>
+                        <td class="text-center">{{$data->students->count()}}</td>
+                        <td>{{$data->school}}</td>
+
+
+                        {{-- <td class="text-center">
+
                             @component('layouts/component/button_delete')
 
                             @endcomponent
                             <a href="" class="btn btn-light btn-xs" type="button" title="edit" data-toggle="modal"
                                 data-target="#edit"><i class="fa fa-download text-primary fa-lg"></i></a>
-                        </td>
+                        </td> --}}
                     </tr>
+
+                    @endforeach
 
                 </tbody>
             </table>

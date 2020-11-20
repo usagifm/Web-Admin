@@ -11,22 +11,25 @@ Daftar Kelas | Admin Sanedu
 'page_name' => 'Daftar Kelas',
 'search_button' => true,
 'tag_search_placeholder' => 'Cari Kelas',
-'action_url' => '',
-'form_method' => '',
+'action_url' => '/sanclass/list/cari',
+'form_method' => 'GET',
 'tag_search_id' => '',
-'tag_search_name'=> ''
+'tag_search_name'=> 'Key'
 ])
 @endcomponent
 
 {{-- component table --}}
 @component('sanclass/component/table_list',[
-
+    'datas' => $kelas
 ])
 @endcomponent
 
 
 {{-- component pagination --}}
-@component('layouts/component/pagination')
+@component('layouts/component/pagination',[
+
+'datas' => $kelas
+])
 
 @endcomponent
 
