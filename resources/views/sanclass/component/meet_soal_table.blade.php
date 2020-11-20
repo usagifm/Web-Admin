@@ -13,9 +13,9 @@
                             class="fa fa-trash text-light fa-lg"></i></a>
                 </th> --}}
                 <th class="">Nomor</th>
-                <th class="">Pertanyaan</th>
                 <th class="">Jenis Pertanyaan</th>
-                <th class="">Gambar Pertanyaan</th>
+                <th class="">Pertanyaan</th>
+                <th class="text-center">Gambar Pertanyaan</th>
                 <th class="">A</th>
                 <th class="">B</th>
                 <th class="">C</th>
@@ -40,10 +40,33 @@
                 {{-- <th class="text-center">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                 </th> --}}
-                <th class="text-center">{{$num++}}</th>
+                <th class="">{{$num++}}</th>
+                @if ($data->question_type == 1) 
+                <td class="">Pilihan Ganda</td>
+                @else
+                <td class="text-center">Essay</td>
+                @endif
                 <td>{{$data->question}}</td>
-                <td class="text-center">{{$data->question_type}}</td>
-                <td>http://storage.sanedu.id/{{$data->question_image}}</td>
+
+                @if ($data->question_image != null) 
+                <td class="text-center">
+                    <a href="http://storage.sanedu.id/{{$data->question_image}}" target="_blank">
+                        <i class="fa fa-eye text-success fa-lg"></i> Lihat
+                    </a>
+                </td>
+
+                @else
+                <td class="text-center">-</td>
+                @endif
+
+                {{-- <td class="text-center">
+                    <a href="http://storage.sanedu.id/{{$data->question_image}}" target="_blank">
+                        <i class="fa fa-eye text-success fa-lg"></i> Lihat
+                    </a>
+                </td> --}}
+
+
+                {{-- <td>http://storage.sanedu.id/{{$data->question_image}}</td> --}}
                 <td>{{$data->a}}</td>
                 <td>{{$data->b}}</td>
                 <td>{{$data->c}}</td>

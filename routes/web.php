@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth'],function(){
 
     // Pertemuan
     Route::get('/sanclass/class/{class_id}/meet/{id}','sanclass\DaftarPertemuanController@index')->name('san-class-list');
+    Route::post('/sanclass/delete/attempt/{id}','sanclass\DaftarPertemuanController@deleteAttempt')->name('member-siswa');
 
 
     // Materi

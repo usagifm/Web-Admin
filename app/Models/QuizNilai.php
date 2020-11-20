@@ -16,4 +16,9 @@ class QuizNilai extends Model
     }
 
 
+    public function quiz() {
+        return $this->belongsTo('App\Models\Quiz', 'quiz_id')->withDefault();
+    }
+
+
 }

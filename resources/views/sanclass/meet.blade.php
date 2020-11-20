@@ -7,6 +7,12 @@ Kelas Memasak | Admin Sanedu
 @section('content')
 
 {{-- component header --}}
+@component('layouts/component/allert',[
+])
+@endcomponent
+
+
+{{-- component header --}}
 @component('layouts/component/content-header',[
 'page_name' => 'Detail Pertemuan',
 'search_button' => false,
